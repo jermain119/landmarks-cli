@@ -16,7 +16,7 @@ class Cli
      end
 
       def print_landmarks
-      landmark.all.each.with_index(1) do |landmark, index|
+      Landmark.all.each.with_index(1) do |landmark, index|
       
       puts "#{index}. #{landmark.name}"
   
