@@ -16,6 +16,8 @@ class Scraper
 
   def self.scrape_landmark_details(landmark)
     url = BASE_URL + landmark.url
+    doc = Nokogiri::HTML(open(url))
+    
     #scrape the url that was passed in
   end
   
