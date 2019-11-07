@@ -10,7 +10,7 @@ class Cli
       puts " select the number of landmark to see further deatails or type 'exit' to exit"  
       input = gets.strip.downcase
       while input != 'exit' do 
-        landmark = Landmark.all[input.to_i-1]
+        landmark = Landmark.all[input.to_i - 1]
       end
   end
     # def menu
