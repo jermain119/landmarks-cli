@@ -23,7 +23,7 @@ class Cli
    end
     def print_landmark(landmark)
       puts "#{landmark.name}"
-      puts " Hours_of_operation: #{landmark.hours_of_operation}"
+      #puts " Hours_of_operation: #{landmark.hours_of_operation}"
       puts " About: #{landmark.about}"
     end
 
