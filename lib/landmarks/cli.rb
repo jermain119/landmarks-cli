@@ -15,7 +15,7 @@ class Cli
         print_landmark(landmark)
         puts "  "
         puts "would you like to see another landmark?"
-        puts " if so make a selection from the number list type 'exit' to exit "
+        puts " if so make a selection from the number list or type 'exit' to exit "
          input = gets.strip.downcase
       end
       
@@ -24,7 +24,7 @@ class Cli
     def print_landmark(landmark)
       puts "#{landmark.name}"
       puts " Hours_of_operation: #{landmark.hours_of_operation}"
-  
+      puts " About: #{landmark.about}"
     end
 
       def print_landmarks
