@@ -1,37 +1,46 @@
 class Cli
-    def welcome
-      puts "welcome to landmarks"
-      puts " "
-      puts "-----------"
-      puts ' '
+  def run 
+      self.greeting
       Scraper.scrape_landmarks
-       print_landmarks
-      puts " "
-      puts " select the number of landmark to see further deatails or type 'exit' to exit"  
-      input = gets.strip.downcase
-      while input != 'exit' do 
-        landmark = Landmark.all[input.to_i - 1]
-        Scraper.scrape_landmark_details(landmark) 
-        print_landmark(landmark)
-        puts "  "
-        puts "would you like to see another landmark?"
-        puts " if so make a selection from the number list or type 'exit' to exit "
-         input = gets.strip.downcase
+      loop do 
+        user_input = main_menu
+        if user_input == "exit" || user_input.include?("n")
+          return 
+       else 
+        self.list_landmark
+        self.choose_landmark
+        
+          
       end
-      
-      puts "good bye"
-   end
-    def print_landmark(landmark)
-      puts "#{landmark.name}"
-      #puts " Hours_of_operation: #{landmark.hours_of_operation}"
-      puts " About: #{landmark.about}"
-    end
+  end 
 
-      def print_landmarks
-      Landmark.all.each.with_index(1) do |landmark, index|
-      
-      puts "#{index}.#{landmark.name}"
-  
-       end
+  def greeting
+    
+    puts " welcome to landmarks"
+    
+    end
+    
+    
+    def main_menu
+      puts "make a selection"
+      input = gets.strip.downcase     
+      return input 
     end 
+    
+    
+  def list_movies
+    
+    puts "in theater now"
+    Landmark.all.each.with_index{ |m, i| puts "#{i + 1 }. #{m.name}" }
+    
+  end
+    
+    def choose_landmark
+    puts "choose a landmark"
+    index = gets.strip.to_i - 1
+    landmark = Landmark.all[index]
+    Scraper.scraped_details
+      
+    end
+    
 end
