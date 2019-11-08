@@ -6,9 +6,10 @@ class Cli
         user_input = main_menu
         if user_input == "exit" || user_input.include?("n")
           return 
+          
        else 
-        self.list_landmark
-        self.choose_landmark
+        self.list_landmarks
+        self.choose_landmarks
         
           end
       end
@@ -22,24 +23,25 @@ class Cli
     
     
     def main_menu
-      puts "make a selection"
+      puts "would you like to see a list of landmarks ?" 
       input = gets.strip.downcase     
       return input 
     end 
     
     
-  def list_movies
+  def list_landmarks
     
     puts "in theater now"
-    Landmark.all.each.with_index{ |m, i| puts "#{i + 1 }. #{m.name}" }
+    Landmark.all.each_with_index{ |m, i| puts "#{i + 1 }. #{m.name}" }
     
   end
     
-    def choose_landmark
+    def choose_landmarks
     puts "choose a landmark"
+    
     index = gets.strip.to_i - 1
     landmark = Landmark.all[index]
-    Scraper.scraped_details(landmark)
+    Scraper.scrape_landmark_details(landmark)
     self.display_landamrk_info(landmark)
       
     end
