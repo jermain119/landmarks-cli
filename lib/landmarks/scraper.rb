@@ -20,7 +20,7 @@ class Scraper
     url = BASE_URL + landmark.url
     doc = Nokogiri::HTML(open(url))
     scraped_details = doc.css("div.attractions-attraction-detail-about-card-AttractionDetailAboutCard__section--1_Efg")[1]
-    
+    landmark.about = scraped_details.first 
     if scraped_details
       landmark.about = scraped_details.text 
     else

@@ -10,7 +10,7 @@ class Cli
         self.list_landmark
         self.choose_landmark
         
-          
+          end
       end
   end 
 
@@ -39,8 +39,16 @@ class Cli
     puts "choose a landmark"
     index = gets.strip.to_i - 1
     landmark = Landmark.all[index]
-    Scraper.scraped_details
+    Scraper.scraped_details(landmark)
+    self.display_landamrk_info(landmark)
       
     end
     
+    def display_landamrk_info(landmark)
+      puts "\n\n\n"
+      puts landmark.name
+      puts landmark.about
+      puts "\n\n\n"
+      
+    end
 end
