@@ -9,7 +9,7 @@ class Scraper
         
     doc.css(".attraction_list .listing")[0..10].each do |lm|
     
-     landmark = Landmark.new(name, url)
+      landmark = Landmark.new(name, url)
       landmark.name = lm.css('a')[1].text
       landmark.url = lm.css('a')[1].attribute("href").value
     end
