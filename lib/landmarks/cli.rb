@@ -1,4 +1,5 @@
 class Cli
+  
   def run 
       self.greeting
       Scraper.scrape_landmarks
@@ -11,8 +12,8 @@ class Cli
         self.list_landmarks
         self.choose_landmarks
         
-          end
       end
+    end
   end 
 
   def greeting
@@ -39,12 +40,16 @@ class Cli
     def choose_landmarks
     puts "choose a landmark"
     
-    index = gets.strip.to_i - 1
-    landmark = Landmark.all[index]
-    Scraper.scrape_landmark_details(landmark)
-    self.display_landamrk_info(landmark)
-      
+    index = gets.strip.to_i - 1 
+    if index >= 0 && index <= 10 
+      landmark = Landmark.all[index]
+      Scraper.scrape_landmark_details(landmark)
+      self.display_landamrk_info(landmark)
+    else 
+      puts "invalid entry"    
     end
+      
+  end
     
     def display_landamrk_info(landmark)
       puts "\n\n\n"
