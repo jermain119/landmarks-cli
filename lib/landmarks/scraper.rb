@@ -23,9 +23,9 @@ class Scraper
     landmark.about = scraped_details
     
     if scraped_details
-        landmark.about = scraped_details.text 
-      else
-        landmark.about = "Sorry, no details found"
+    landmark.about = scraped_details.text 
+    else
+      landmark.about = "Sorry, no details found"
     end
     # landmark.hours_of_operation = doc.css("div.attractions-attraction-detail-about-card-AttractionDetailAboutCard__section--1_Efg")[3].text
     #scrape the url that was passed in
