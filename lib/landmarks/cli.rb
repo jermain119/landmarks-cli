@@ -32,9 +32,10 @@ class Cli
     
   def list_landmarks
     
-    puts "in theater now"
+    puts "list of landmarks"
     Landmark.all.each_with_index{ |m, i| puts "#{i + 1 }. #{m.name}" }
     
+   
   end
     
   def choose_landmarks
