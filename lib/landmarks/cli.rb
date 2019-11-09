@@ -4,31 +4,31 @@ class Cli
       self.greeting
       Scraper.scrape_landmarks
       loop do 
-        user_input = main_menu
-        if user_input == "exit" || user_input.include?("n")
-          return 
+      user_input = main_menu
+      if user_input == "exit" || user_input.include?("n")
+      return 
           
-       else 
+        else 
         self.list_landmarks
         self.choose_landmarks
         
+        end
       end
-    end
   end 
 
   def greeting
     
     puts " welcome to landmarks"
     
-    end
+  end
     
     
-    def main_menu
+  def main_menu
       puts "would you like to see a list of landmarks ?" 
       input = gets.strip.downcase     
       return input 
-    end 
-    
+  end 
+        
     
   def list_landmarks
     
@@ -37,7 +37,7 @@ class Cli
     
   end
     
-    def choose_landmarks
+  def choose_landmarks
     puts "choose a landmark"
     
     index = gets.strip.to_i - 1 
@@ -46,16 +46,16 @@ class Cli
       Scraper.scrape_landmark_details(landmark)
       self.display_landamrk_info(landmark)
     else 
-      puts "invalid entry"    
+    puts "invalid entry"    
     end
       
   end
     
-    def display_landamrk_info(landmark)
+  def display_landamrk_info(landmark)
       puts "\n\n\n"
       puts landmark.name
       puts landmark.about
       puts "\n\n\n"
       
-    end
+  end
 end
